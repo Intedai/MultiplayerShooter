@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @export var bullet_scene: PackedScene
 
-const SPEED = 100
+@export var speed: int
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(name))
@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 		shoot.rpc()
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
