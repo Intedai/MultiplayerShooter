@@ -1,5 +1,7 @@
 extends MultiplayerSpawner
 
+@onready var game: Node = $".."
+
 const ENEMY = preload("res://Enemies/Enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -9,7 +11,11 @@ func _ready() -> void:
 
 func spawn_enemy(_data) -> Enemy:
 	var enemy: Enemy = ENEMY.instantiate()
+	enemy.died.connect(on_enemy_death)
 	return enemy
+
+func on_enemy_death(enemy: Enemy) -> void:
+	game.update_total_score.rpc(enemy.score)
 
 func _on_button_pressed() -> void:
 	if is_multiplayer_authority():

@@ -10,6 +10,7 @@ height = 10.0
 [node name="Enemy" type="CharacterBody2D" unique_id=2048394840]
 script = ExtResource("1_4isyn")
 health = 2
+score = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1669044330]
 modulate = Color(1, 0, 0, 1)

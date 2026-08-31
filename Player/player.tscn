@@ -13,7 +13,7 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[node name="Player" type="CharacterBody2D" unique_id=85773507]
+[node name="Player" type="CharacterBody2D" unique_id=85773507 groups=["players"]]
 collision_layer = 2
 script = ExtResource("1_onrkg")
 bullet_scene = ExtResource("2_btcbx")
@@ -32,3 +32,31 @@ replication_config = SubResource("SceneReplicationConfig_4ntmi")
 
 [node name="GunPoint" type="Marker2D" parent="." unique_id=1527810422]
 position = Vector2(0, -4)
+
+[node name="Score" type="Label" parent="." unique_id=1243297011]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.5
+offset_top = 3.0
+offset_right = 15.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="." unique_id=949982371]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.5
+offset_top = -16.0
+offset_right = 15.5
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "Name"
+horizontal_alignment = 1

@@ -6,6 +6,14 @@
 [node name="game" type="Node" unique_id=1645071500]
 script = ExtResource("1_e2o6t")
 
+[node name="TotalScore" type="Label" parent="." unique_id=1249682313]
+offset_left = -142.0
+offset_top = -57.0
+offset_right = -77.0
+offset_bottom = -43.0
+theme_override_font_sizes/font_size = 10
+text = "Total Score: 0"
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1982892926]
 zoom = Vector2(4, 4)
 
