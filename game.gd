@@ -6,6 +6,7 @@ const PLAYER = preload("res://Player/player.tscn")
 @onready var spawn_point: Marker2D = $SpawnPoint
 @onready var multiplayer_ui: Control = $UI/Multiplayer
 @onready var total_score_label: Label = $TotalScore
+@onready var chat: Control = $UI/Chat
 
 var peer = ENetMultiplayerPeer.new()
 
@@ -24,7 +25,7 @@ func _on_host_pressed() -> void:
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(
 		func(pid):
-			print(str(pid) + " joined!")
+			chat.add_msg.rpc(str(pid) + " joined the game!", false)
 			player_spawner.spawn(pid)
 	)
 	multiplayer_ui.hide()

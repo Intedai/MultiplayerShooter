@@ -9,13 +9,24 @@ extends CharacterBody2D
 @export var bullet_scene: PackedScene
 @export var speed: int
 
+@onready var chat: Chat = get_parent().get_node("UI").get_node("Chat")
+
 var score = 0
+var can_move = true
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(name))
 
 func _ready() -> void:
 	name_label.text = str(name)
+	chat.chat_opened.connect(disable_movement)
+	chat.chat_closed.connect(enable_movement)
+
+func enable_movement():
+	can_move = true
+
+func disable_movement() -> void:
+	can_move = false
 
 @rpc("call_local")
 func shoot() -> void:
@@ -30,7 +41,7 @@ func add_score(amount: int) -> void:
 	score_label.text = "Score: " + str(score)
 
 func _physics_process(_delta: float) -> void:
-	if !is_multiplayer_authority():
+	if !is_multiplayer_authority() or !can_move:
 		return
 	if Input.is_action_just_pressed("shoot"):
 		shoot.rpc()
