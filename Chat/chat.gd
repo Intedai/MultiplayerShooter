@@ -1,8 +1,13 @@
 extends Control
+class_name Chat
 
 @onready var chat_text: Label = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/ChatText
 @onready var line_edit: LineEdit = $MarginContainer/HBoxContainer/VBoxContainer/LineEdit
 @onready var scroll_container: ScrollContainer = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer
+
+signal chat_opened
+signal chat_closed
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("chat") and !line_edit.has_focus():
@@ -42,6 +47,10 @@ func format_chat_msg(msg: String) -> String:
 
 func _toggle_input() -> void:
 	line_edit.visible = not line_edit.visible
+	if line_edit.visible:
+		chat_opened.emit()
+	else:
+		chat_closed.emit()
 
 func scroll_to_bottom() -> void:
 	for i in range(2):
