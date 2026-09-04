@@ -12,7 +12,6 @@ signal chat_closed
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("chat") and !line_edit.has_focus():
 		_toggle_input()
-		scroll_to_bottom()
 		await get_tree().process_frame
 		line_edit.grab_focus()
 		
@@ -39,7 +38,6 @@ func add_msg(msg: String, sent_by_player: bool) -> void:
 	if sent_by_player:
 		msg = msg.insert(0, "<" + str(multiplayer.get_remote_sender_id()) + "> ")
 	chat_text.text += "\n" + msg
-	scroll_to_bottom()
 	
 func format_chat_msg(msg: String) -> String:
 	# Strip whitespaces and turn multiple spaces into one
@@ -48,9 +46,12 @@ func format_chat_msg(msg: String) -> String:
 func _toggle_input() -> void:
 	line_edit.visible = not line_edit.visible
 	if line_edit.visible:
+		scroll_container.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
 		chat_opened.emit()
 	else:
+		scroll_container.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 		chat_closed.emit()
+	scroll_to_bottom()
 
 func scroll_to_bottom() -> void:
 	for i in range(2):

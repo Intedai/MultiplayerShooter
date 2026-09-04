@@ -39,6 +39,8 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
 [node name="ChatText" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer" unique_id=766687029]
 custom_minimum_size = Vector2(390, 0)
