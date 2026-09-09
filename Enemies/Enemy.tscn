@@ -18,7 +18,7 @@ speed = 100
 texture = ExtResource("2_4isyn")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1796789046]
-polygon = PackedVector2Array(4, 8, 4, 7, 5, 7, 5, 6, 6, 6, 6, 3, 7, 3, 7, -4, -6, -4, -6, 3, -5, 3, -5, 6, -4, 6, -4, 7, -3, 7, -3, 8)
+polygon = PackedVector2Array(4, 8, 4, 7, 5, 7, 5, 6, 6, 6, 6, 3, 7, 3, 7, 2, -6, 2, -6, 3, -5, 3, -5, 6, -4, 6, -4, 7, -3, 7, -3, 8)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1545558509]
 replication_config = SubResource("SceneReplicationConfig_4isyn")
