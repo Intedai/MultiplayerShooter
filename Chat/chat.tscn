@@ -38,7 +38,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 4
-text = "You joined!"
+text = "Lobby started!"
 autowrap_mode = 3
 
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer" unique_id=1129303426]

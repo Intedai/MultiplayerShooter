@@ -3,6 +3,9 @@ extends MultiplayerSpawner
 @onready var game: Node = $".."
 @onready var spawn_player_button: Button = $"../UI/MarginContainer/SpawnPlayerButton"
 
+const spawn_x_range = [-226, 226]
+const spawn_y = -137
+
 const ENEMY = preload("res://Enemies/Enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +15,8 @@ func _ready() -> void:
 
 func spawn_enemy(_data) -> Enemy:
 	var enemy: Enemy = ENEMY.instantiate()
+	enemy.position.x = randi_range(spawn_x_range[0], spawn_x_range[1])
+	enemy.position.y = spawn_y
 	enemy.died.connect(on_enemy_death)
 	return enemy
 
