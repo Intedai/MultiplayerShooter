@@ -1,9 +1,9 @@
 extends Control
 class_name Chat
 
-@onready var chat_text: Label = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/ChatText
-@onready var line_edit: LineEdit = $MarginContainer/HBoxContainer/VBoxContainer/LineEdit
-@onready var scroll_container: ScrollContainer = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer
+@onready var chat_text: Label = $HBoxContainer/VBoxContainer/ScrollContainer/ChatText
+@onready var line_edit: LineEdit = $HBoxContainer/VBoxContainer/LineEdit
+@onready var scroll_container: ScrollContainer = $HBoxContainer/VBoxContainer/ScrollContainer
 
 signal chat_opened
 signal chat_closed

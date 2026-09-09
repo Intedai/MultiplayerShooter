@@ -4,16 +4,13 @@
 [ext_resource type="Script" uid="uid://duqw7tunv4sps" path="res://Player/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://cjcbaguljpoa4" path="res://Bullet/bullet.tscn" id="2_btcbx"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwnis"]
-radius = 4.0
-height = 10.0
-
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4ntmi"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D" unique_id=85773507 groups=["players"]]
+z_index = 1
 collision_layer = 2
 script = ExtResource("1_onrkg")
 bullet_scene = ExtResource("2_btcbx")
@@ -22,25 +19,20 @@ speed = 100
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1484850282]
 texture = ExtResource("1_4flbx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1748872535]
-position = Vector2(0, 1)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_gwnis")
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=791750454]
 replication_config = SubResource("SceneReplicationConfig_4ntmi")
 
 [node name="GunPoint" type="Marker2D" parent="." unique_id=1527810422]
-position = Vector2(0, -4)
+position = Vector2(0, -8)
 
 [node name="Score" type="Label" parent="." unique_id=1243297011]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -15.5
-offset_top = 3.0
-offset_right = 15.5
-offset_bottom = 15.0
+offset_left = -32.0
+offset_top = 7.0
+offset_right = 32.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 8
@@ -51,12 +43,15 @@ horizontal_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -15.5
+offset_left = -16.0
 offset_top = -16.0
-offset_right = 15.5
+offset_right = 16.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 8
 text = "Name"
 horizontal_alignment = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1129791251]
+polygon = PackedVector2Array(0, -8, 1, -8, 1, -7, 2, -7, 2, -6, 3, -6, 3, -5, 4, -5, 4, -4, 5, -4, 5, -3, 6, -3, 6, -2, 7, -2, 7, 0, 8, 0, 8, 1, -7, 1, -7, 0, -6, 0, -6, -2, -5, -2, -5, -3, -4, -3, -4, -4, -3, -4, -3, -5, -2, -5, -2, -6, -1, -6, -1, -7, 0, -7)

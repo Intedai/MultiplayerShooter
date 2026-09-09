@@ -1,23 +1,24 @@
 [gd_scene format=3 uid="uid://dpu6bhbbptpkb"]
 
 [ext_resource type="Script" uid="uid://cqy8mk817d2bo" path="res://Enemies/enemy.gd" id="1_4isyn"]
-[ext_resource type="Texture2D" uid="uid://5202mp700fvp" path="res://Player/player.png" id="1_bkvnc"]
+[ext_resource type="Texture2D" uid="uid://dnr0m3oobcx0g" path="res://Enemies/enemy.png" id="2_4isyn"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4isyn"]
-radius = 4.0
-height = 10.0
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4isyn"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="Enemy" type="CharacterBody2D" unique_id=2048394840]
 script = ExtResource("1_4isyn")
 health = 2
 score = 10
+speed = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1669044330]
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_bkvnc")
-flip_v = true
+texture = ExtResource("2_4isyn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=31728301]
-position = Vector2(0, -1)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_4isyn")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1796789046]
+polygon = PackedVector2Array(4, 8, 4, 7, 5, 7, 5, 6, 6, 6, 6, 3, 7, 3, 7, -4, -6, -4, -6, 3, -5, 3, -5, 6, -4, 6, -4, 7, -3, 7, -3, 8)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1545558509]
+replication_config = SubResource("SceneReplicationConfig_4isyn")

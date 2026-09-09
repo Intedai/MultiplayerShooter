@@ -4,9 +4,9 @@ const PLAYER = preload("res://Player/player.tscn")
 
 @onready var player_spawner: MultiplayerSpawner = $PlayerSpawner
 @onready var spawn_point: Marker2D = $SpawnPoint
-@onready var multiplayer_ui: Control = $UI/Multiplayer
-@onready var total_score_label: Label = $TotalScore
-@onready var chat: Control = $UI/Chat
+@onready var multiplayer_ui: Control = $UI/MarginContainer/Multiplayer
+@onready var total_score_label: Label = $UI/MarginContainer/TotalScore
+@onready var chat: Chat = $UI/MarginContainer/Chat
 
 var peer = ENetMultiplayerPeer.new()
 

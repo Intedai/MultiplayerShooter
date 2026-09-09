@@ -5,6 +5,7 @@ signal died(enemy: Enemy)
 
 @export var health: int
 @export var score: int
+@export var speed: int
 
 @rpc("any_peer", "call_local", "reliable")
 func take_damage(damage: int, shooter: Player) -> void:

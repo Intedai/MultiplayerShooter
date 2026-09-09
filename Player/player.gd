@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var bullet_scene: PackedScene
 @export var speed: int
 
-@onready var chat: Chat = get_parent().get_node("UI").get_node("Chat")
+@onready var chat: Chat = get_parent().get_node("UI").get_node("MarginContainer").get_node("Chat")
 
 var score = 0
 var can_move = true

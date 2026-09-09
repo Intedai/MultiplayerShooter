@@ -1,12 +1,13 @@
 extends MultiplayerSpawner
 
 @onready var game: Node = $".."
+@onready var spawn_player_button: Button = $"../UI/MarginContainer/SpawnPlayerButton"
 
 const ENEMY = preload("res://Enemies/Enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Button.focus_mode = Control.FOCUS_NONE # So shooting won't spawn enemies
+	spawn_player_button.focus_mode = Control.FOCUS_NONE # So shooting won't spawn enemies
 	spawn_function = spawn_enemy
 
 func spawn_enemy(_data) -> Enemy:
