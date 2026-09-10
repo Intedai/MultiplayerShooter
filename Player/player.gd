@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var gun_point: Marker2D = $GunPoint
 @onready var score_label: Label = $Score
 @onready var name_label: Label = $Name
+@onready var shoot_cooldown: Timer = $ShootCooldown
 
 @export var bullet_scene: PackedScene
 @export var speed: int
@@ -43,8 +44,11 @@ func add_score(amount: int) -> void:
 func _physics_process(_delta: float) -> void:
 	if !is_multiplayer_authority() or !can_move:
 		return
-	if Input.is_action_just_pressed("shoot"):
+
+	if Input.is_action_just_pressed("shoot") and shoot_cooldown.is_stopped():
 		shoot.rpc()
+		shoot_cooldown.start()
+
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * speed

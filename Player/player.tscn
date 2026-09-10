@@ -23,7 +23,7 @@ texture = ExtResource("1_4flbx")
 replication_config = SubResource("SceneReplicationConfig_4ntmi")
 
 [node name="GunPoint" type="Marker2D" parent="." unique_id=1527810422]
-position = Vector2(0, -8)
+position = Vector2(0, -10)
 
 [node name="Score" type="Label" parent="." unique_id=1243297011]
 anchors_preset = 15
@@ -55,3 +55,7 @@ horizontal_alignment = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1129791251]
 polygon = PackedVector2Array(0, -8, 1, -8, 1, -7, 2, -7, 2, -6, 3, -6, 3, -5, 4, -5, 4, -4, 5, -4, 5, -3, 6, -3, 6, -2, 7, -2, 7, 0, 8, 0, 8, 1, -7, 1, -7, 0, -6, 0, -6, -2, -5, -2, -5, -3, -4, -3, -4, -4, -3, -4, -3, -5, -2, -5, -2, -6, -1, -6, -1, -7, 0, -7)
+
+[node name="ShootCooldown" type="Timer" parent="." unique_id=779139694]
+wait_time = 0.25
+one_shot = true
