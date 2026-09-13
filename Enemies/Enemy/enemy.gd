@@ -6,7 +6,6 @@ signal died(enemy: Enemy)
 @export var health: int
 @export var score: int
 @export var speed: int
-@export var explosion_scene: PackedScene
 
 func _physics_process(delta: float) -> void:
 	if !is_multiplayer_authority():

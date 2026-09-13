@@ -6,7 +6,7 @@ extends MultiplayerSpawner
 const spawn_x_range = [-226, 226]
 const spawn_y = -137
 
-const ENEMY = preload("res://Enemies/Enemy.tscn")
+const ENEMY = preload("res://Enemies/Enemy/enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
