@@ -15,15 +15,16 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	destroy()
 
 func _on_area_entered(area: Area2D) -> void:
-	if !is_multiplayer_authority() or area is not Enemy:
+	# "destroyed" exists to avoid race condition
+	if destroyed or !is_multiplayer_authority() or area is not Enemy:
 		return
-	var enemy = area as Enemy
-	
+
+	EffectManager.spawn_effect.rpc("bullet_hit", global_position)
+
+	var enemy = area as Enemy	
 	enemy.take_damage.rpc_id(1, damage, shooter)
 	
-	# Avoid race condition
-	if not destroyed:
-		destroy.rpc()
+	destroy.rpc()
 
 @rpc("call_local")
 func destroy() -> void:

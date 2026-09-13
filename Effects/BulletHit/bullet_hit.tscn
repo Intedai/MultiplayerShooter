@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cfdal3ke6befk"]
+
+[ext_resource type="Script" uid="uid://ivt3msr6cgkx" path="res://Effects/Base/effect.gd" id="1_0vyfh"]
+[ext_resource type="Texture2D" uid="uid://b808jxvbvn6yw" path="res://Effects/BulletHit/bullet_hit.png" id="1_os3lr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vcu6"]
+atlas = ExtResource("1_os3lr")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2ehu"]
+atlas = ExtResource("1_os3lr")
+region = Rect2(15, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb6bx"]
+atlas = ExtResource("1_os3lr")
+region = Rect2(30, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_os3lr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vcu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2ehu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb6bx")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="BulletHit" type="AnimatedSprite2D" unique_id=1385005380]
+sprite_frames = SubResource("SpriteFrames_os3lr")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
+script = ExtResource("1_0vyfh")
+metadata/_custom_type_script = "uid://ivt3msr6cgkx"
