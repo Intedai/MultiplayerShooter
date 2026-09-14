@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bg0pqf0clkhot"]
+
+[ext_resource type="Script" uid="uid://bmbiqkyik3bx2" path="res://MainScenes/Game/game.gd" id="1_5b8it"]
+[ext_resource type="PackedScene" uid="uid://bq4wtoawt46kk" path="res://Chat/chat.tscn" id="2_tcgg2"]
+[ext_resource type="Script" uid="uid://bo5aiely4nyv0" path="res://Enemies/enemy_spawner.gd" id="3_3nk4e"]
+
+[node name="Game" type="Node" unique_id=1645071500]
+script = ExtResource("1_5b8it")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1982892926]
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1658762120]
+position = Vector2(0, 90)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1229198243]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1084222421]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TotalScore" type="Label" parent="UI/MarginContainer" unique_id=1249682313]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "Total Score: 0"
+
+[node name="SpawnPlayerButton" type="Button" parent="UI/MarginContainer" unique_id=2077799176]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "Spawn enemy"
+
+[node name="Chat" parent="UI/MarginContainer" unique_id=86460642 instance=ExtResource("2_tcgg2")]
+layout_mode = 2
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=689387668]
+_spawnable_scenes = PackedStringArray("uid://dxuatmxk1g3h4")
+spawn_path = NodePath("..")
+
+[node name="EnemySpawner" type="MultiplayerSpawner" parent="." unique_id=2017736704]
+_spawnable_scenes = PackedStringArray("uid://dpu6bhbbptpkb")
+spawn_path = NodePath("..")
+script = ExtResource("3_3nk4e")
+spawn_y = -137.0
+
+[connection signal="pressed" from="UI/MarginContainer/SpawnPlayerButton" to="EnemySpawner" method="_on_button_pressed"]
