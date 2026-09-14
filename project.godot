@@ -18,6 +18,7 @@ config/icon="uid://5202mp700fvp"
 [autoload]
 
 EffectManager="*uid://cfti4w5gms25i"
+Constraints="*uid://rchx3wvi01xh"
 
 [display]
 

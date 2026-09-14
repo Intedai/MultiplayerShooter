@@ -55,3 +55,4 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
+	position.x = clamp(position.x, Constraints.x_limit[0], Constraints.x_limit[1])

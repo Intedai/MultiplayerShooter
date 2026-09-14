@@ -3,8 +3,7 @@ extends MultiplayerSpawner
 @onready var game: Node = $".."
 @onready var spawn_player_button: Button = $"../UI/MarginContainer/SpawnPlayerButton"
 
-const spawn_x_range = [-226, 226]
-const spawn_y = -137
+@export var spawn_y: float
 
 const ENEMY = preload("res://Enemies/Enemy/enemy.tscn")
 
@@ -15,7 +14,7 @@ func _ready() -> void:
 
 func spawn_enemy(_data) -> Enemy:
 	var enemy: Enemy = ENEMY.instantiate()
-	enemy.position.x = randi_range(spawn_x_range[0], spawn_x_range[1])
+	enemy.position.x = randi_range(Constraints.x_limit[0], Constraints.x_limit[1])
 	enemy.position.y = spawn_y
 	enemy.died.connect(on_enemy_death)
 	return enemy
