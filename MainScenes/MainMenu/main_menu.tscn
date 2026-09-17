@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://byjr1adgtcg5n"]
 
 [ext_resource type="Script" uid="uid://dora3upaytgpd" path="res://MainScenes/MainMenu/main_menu.gd" id="1_a2q25"]
+[ext_resource type="Script" uid="uid://c8y5qmpwhfhf2" path="res://MainScenes/MainMenu/port_input.gd" id="2_jpskw"]
 
 [node name="MainMenu" type="Control" unique_id=277428837]
 layout_mode = 3
@@ -85,6 +86,7 @@ theme_override_font_sizes/font_size = 8
 placeholder_text = "Port"
 max_length = 5
 virtual_keyboard_type = 2
+script = ExtResource("2_jpskw")
 
 [node name="Start" type="Button" parent="HostServerMenu/HBoxContainer" unique_id=211368300]
 layout_mode = 2
@@ -137,6 +139,7 @@ theme_override_font_sizes/font_size = 8
 placeholder_text = "Port"
 max_length = 5
 virtual_keyboard_type = 2
+script = ExtResource("2_jpskw")
 
 [node name="Buttons" type="HBoxContainer" parent="JoinServerMenu" unique_id=1188344018]
 layout_mode = 2
