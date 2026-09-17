@@ -17,7 +17,7 @@ func is_valid_port_str(port: String) -> bool:
 	return int_port >= MIN_PORT and int_port <= MAX_PORT
 
 func _on_text_changed(new_text: String) -> void:
-	if new_text.is_empty() or is_valid_port_str(new_text):
+	if is_valid_port_str(new_text) or new_text.is_empty():
 		old_text = new_text
 		return
 	text = old_text
