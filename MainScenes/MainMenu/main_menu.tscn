@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://byjr1adgtcg5n"]
+
+[ext_resource type="Script" uid="uid://dora3upaytgpd" path="res://MainScenes/MainMenu/main_menu.gd" id="1_a2q25"]
+[ext_resource type="Script" uid="uid://c8y5qmpwhfhf2" path="res://MainScenes/MainMenu/port_input.gd" id="2_jpskw"]
+
+[node name="MainMenu" type="Control" unique_id=277428837]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a2q25")
+
+[node name="MainMenuButtons" type="VBoxContainer" parent="." unique_id=1067526949]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -46.5
+offset_right = 96.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MainMenuButtons" unique_id=1312052107]
+layout_mode = 2
+text = "Shooter Game"
+
+[node name="HSeparator" type="HSeparator" parent="MainMenuButtons" unique_id=933977275]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Host" type="Button" parent="MainMenuButtons" unique_id=1144315557]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Host"
+
+[node name="Join" type="Button" parent="MainMenuButtons" unique_id=974357515]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Join"
+
+[node name="Quit" type="Button" parent="MainMenuButtons" unique_id=163221321]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Quit"
+
+[node name="HostServerMenu" type="VBoxContainer" parent="." unique_id=1811743015]
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -18.0
+offset_right = 125.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="HostServerMenu" unique_id=289317868]
+layout_mode = 2
+text = "HOST GAME!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HostServerMenu" unique_id=726797745]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PortInput" type="LineEdit" parent="HostServerMenu/HBoxContainer" unique_id=872757053]
+layout_mode = 2
+focus_mode = 1
+theme_override_constants/minimum_character_width = 5
+theme_override_font_sizes/font_size = 8
+placeholder_text = "Port"
+max_length = 5
+virtual_keyboard_type = 2
+script = ExtResource("2_jpskw")
+
+[node name="Start" type="Button" parent="HostServerMenu/HBoxContainer" unique_id=211368300]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Start"
+
+[node name="Cancel" type="Button" parent="HostServerMenu/HBoxContainer" unique_id=1359257531]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Cancel"
+
+[node name="JoinServerMenu" type="VBoxContainer" parent="." unique_id=1429906095]
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="JoinServerMenu" unique_id=1796177202]
+layout_mode = 2
+text = "JOIN GAME!"
+horizontal_alignment = 1
+
+[node name="AddrContrainer" type="HBoxContainer" parent="JoinServerMenu" unique_id=1652839053]
+layout_mode = 2
+
+[node name="AddressInput" type="LineEdit" parent="JoinServerMenu/AddrContrainer" unique_id=1098335863]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 1
+theme_override_font_sizes/font_size = 8
+placeholder_text = "Server Address"
+
+[node name="PortInput" type="LineEdit" parent="JoinServerMenu/AddrContrainer" unique_id=1674434940]
+layout_mode = 2
+focus_mode = 1
+theme_override_constants/minimum_character_width = 5
+theme_override_font_sizes/font_size = 8
+placeholder_text = "Port"
+max_length = 5
+virtual_keyboard_type = 2
+script = ExtResource("2_jpskw")
+
+[node name="Buttons" type="HBoxContainer" parent="JoinServerMenu" unique_id=1188344018]
+layout_mode = 2
+
+[node name="Connect" type="Button" parent="JoinServerMenu/Buttons" unique_id=1573511758]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Connect"
+
+[node name="Cancel" type="Button" parent="JoinServerMenu/Buttons" unique_id=1862190705]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Cancel
+"
+
+[node name="ConnectionScreen" type="VBoxContainer" parent="." unique_id=698643100]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -4.0
+offset_right = 52.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConnectingLabel" type="Label" parent="ConnectionScreen" unique_id=968236238]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Connecting..."
+horizontal_alignment = 1
+
+[node name="ErrorScreen" type="VBoxContainer" parent="." unique_id=906349285]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -14.0
+offset_right = 24.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Error" type="Label" parent="ErrorScreen" unique_id=370409437]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2739889, 0.21327025, 1)
+theme_override_font_sizes/font_size = 8
+text = "ERROR"
+horizontal_alignment = 1
+
+[node name="GoBack" type="Button" parent="ErrorScreen" unique_id=419086827]
+custom_minimum_size = Vector2(80, 0)
+custom_maximum_size = Vector2(80, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Go Back"
+
+[connection signal="pressed" from="MainMenuButtons/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="MainMenuButtons/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="MainMenuButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HostServerMenu/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="HostServerMenu/HBoxContainer/Cancel" to="." method="_on_host_cancel_pressed"]
+[connection signal="pressed" from="JoinServerMenu/Buttons/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="JoinServerMenu/Buttons/Cancel" to="." method="_on_join_cancel_pressed"]
+[connection signal="pressed" from="ErrorScreen/GoBack" to="." method="_on_go_back_pressed"]

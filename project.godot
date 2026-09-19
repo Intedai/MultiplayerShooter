@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Multiplayer Shooter"
-run/main_scene="uid://bg0pqf0clkhot"
+run/main_scene="uid://byjr1adgtcg5n"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://5202mp700fvp"
 
@@ -19,6 +19,7 @@ config/icon="uid://5202mp700fvp"
 
 EffectManager="*uid://cfti4w5gms25i"
 Constraints="*uid://rchx3wvi01xh"
+ErrorManager="*uid://7owd4ch8v6wt"
 
 [display]
 
