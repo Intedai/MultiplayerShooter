@@ -19,6 +19,7 @@ config/icon="uid://5202mp700fvp"
 
 EffectManager="*uid://cfti4w5gms25i"
 Constraints="*uid://rchx3wvi01xh"
+ErrorManager="*uid://7owd4ch8v6wt"
 
 [display]
 

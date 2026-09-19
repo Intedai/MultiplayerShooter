@@ -180,6 +180,37 @@ theme_override_font_sizes/font_size = 8
 text = "Connecting..."
 horizontal_alignment = 1
 
+[node name="ErrorScreen" type="VBoxContainer" parent="." unique_id=906349285]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -14.0
+offset_right = 24.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Error" type="Label" parent="ErrorScreen" unique_id=370409437]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2739889, 0.21327025, 1)
+theme_override_font_sizes/font_size = 8
+text = "ERROR"
+horizontal_alignment = 1
+
+[node name="GoBack" type="Button" parent="ErrorScreen" unique_id=419086827]
+custom_minimum_size = Vector2(80, 0)
+custom_maximum_size = Vector2(80, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Go Back"
+
 [connection signal="pressed" from="MainMenuButtons/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="MainMenuButtons/Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="MainMenuButtons/Quit" to="." method="_on_quit_pressed"]
@@ -187,3 +218,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="HostServerMenu/HBoxContainer/Cancel" to="." method="_on_host_cancel_pressed"]
 [connection signal="pressed" from="JoinServerMenu/Buttons/Connect" to="." method="_on_connect_pressed"]
 [connection signal="pressed" from="JoinServerMenu/Buttons/Cancel" to="." method="_on_join_cancel_pressed"]
+[connection signal="pressed" from="ErrorScreen/GoBack" to="." method="_on_go_back_pressed"]
